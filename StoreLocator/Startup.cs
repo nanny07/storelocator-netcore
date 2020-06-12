@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +37,8 @@ namespace StoreLocator
             //register the StoreService, AFTER the db settings
             services.AddSingleton<StoreServices>();
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null); //PascalCase for the json
 
             //Adding swagger cnf
             services.AddSwaggerGen(c =>
