@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./StoreLocator/StoreLocator.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./StoreLocator/StoreLocator.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test ./StoreLocator/StoreLocator.sln --no-restore --verbosity normal
